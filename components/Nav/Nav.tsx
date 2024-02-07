@@ -9,7 +9,7 @@ import SideMenu from "./SideMenu";
 
 const Nav: React.FC = () => {
   return (
-    <div className="container py-5 space-y-5">
+    <nav className="container py-5 space-y-5">
       <div className="flex items-center justify-between gap-5">
         <div className="flex items-center justify-between">
           <Link href="/" className="font-bold text-inherit text-[18px]">
@@ -28,37 +28,9 @@ const Nav: React.FC = () => {
           <Search />
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
 export default Nav;
 
-const menuList = [
-  {
-    id: 1,
-    title: "Products",
-    link: "/products",
-  },
-  {
-    id: 2,
-    title: "Login",
-    link: "/auth",
-  },
-];
-
-const NavLinks = () => {
-  return (
-    <div className="flex gap-10">
-      {menuList.map((menu) => (
-        <Link
-          key={menu.id}
-          href={menu.link}
-          className="hover:text-green-600 transition-all"
-        >
-          {menu.title}
-        </Link>
-      ))}
-    </div>
-  );
-};

@@ -1,9 +1,15 @@
-import { Button } from '@/components/ui/button'
+import Categories from "@/components/Categories/Categories";
+import Hero from "@/components/Hero/Hero";
+import Offer from "@/components/Offer/Offer";
+import Products from "@/components/Products/Products";
 
 export default function Home() {
   return (
-    <p className='my-5'>
-      <Button variant="destructive" value="LOL">lol</Button>      
-    </p>
-  )
+    <>
+      <Hero />
+      <Categories />
+      <Products />
+      <Offer />
+    </>
+  );
 }
