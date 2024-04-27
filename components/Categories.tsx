@@ -10,7 +10,7 @@ import sunglasses from "@/assets/categories/sunglasses.jpg";
 
 const Categories: React.FC = () => {
   return (
-    <div className="container-fluid relative mt-6 lg:mx-6 mx-3">
+    <div className="container relative my-5">
       <div className="grid xl:grid-cols-6 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
         <div className="relative overflow-hidden group rounded-md shadow dark:shadow-slate-800">
           <Link href="#" className="text-center">
