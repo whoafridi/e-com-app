@@ -57,12 +57,12 @@ export const Asidebar = () => {
       subMenus: [
         {
           label: "Product List",
-          href: "/",
+          href: "/product-list",
           icon: <Users size={18} />,
         },
         {
           label: "Add Product",
-          href: "/",
+          href: "/add-product",
           icon: <UserRoundPlus size={18} />,
         },
       ],
