@@ -27,13 +27,13 @@ import {
   UserSearch,
   ShieldCheck,
   Settings,
+  PackageSearch,
 } from "lucide-react";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 
 export const Asidebar = () => {
-  // const pathname = usePathname();
+  const pathname = usePathname();
 
   const [open, setOpen] = useState(true);
   const [activeSubMenuIndex, setActiveSubMenuIndex] = useState<number | null>(
@@ -42,7 +42,6 @@ export const Asidebar = () => {
 
   const handleSubMenuClick = (index: number) => {
     setActiveSubMenuIndex(index === activeSubMenuIndex ? null : index);
-    console.log("clicked");
   };
 
   const menus = [
@@ -52,160 +51,78 @@ export const Asidebar = () => {
       icon: <LayoutDashboard size={18} />,
     },
     {
-      title: "Employee",
-      icon: <Users size={18} />,
+      title: "Products",
+      icon: <PackageSearch size={18} />,
       href: "#",
       subMenus: [
         {
-          label: "Employee List",
-          href: "/emp/list",
+          label: "Product List",
+          href: "/",
           icon: <Users size={18} />,
         },
         {
-          label: "Add Employee",
-          href: "/emp/add",
+          label: "Add Product",
+          href: "/",
           icon: <UserRoundPlus size={18} />,
-        },
-        {
-          label: "Notice Period",
-          href: "/emp/notice/period",
-          icon: <NotebookPen size={18} />,
-        },
-        {
-          label: "Allocated Assets",
-          href: "/emp/allocated/assets",
-          icon: <FilePlus2 size={18} />,
         },
       ],
     },
     {
-      title: "Leave",
+      title: "Category",
       icon: <FileInput size={18} />,
       href: "#",
       subMenus: [
         {
-          label: "Leave assigned",
-          href: "/leave/assigned",
+          label: "Category List",
+          href: "/",
           icon: <ListPlus size={18} />,
         },
         {
-          label: "Leave calender",
-          href: "/leave/calender",
+          label: "Add Category",
+          href: "/",
           icon: <CalendarPlus size={18} />,
         },
       ],
     },
     {
-      title: "Attendance",
+      title: "Orders",
       icon: <CalendarClock size={18} />,
       href: "#",
       subMenus: [
         {
-          label: "Monthly attend.",
-          href: "/attendance/monthly",
+          label: "Order List",
+          href: "/",
           icon: <CalendarDays size={18} />,
         },
         {
-          label: "Import",
-          href: "/attendance/import",
+          label: "POS",
+          href: "/",
           icon: <CalendarFold size={18} />,
         },
       ],
     },
     {
-      title: "Payroll",
+      title: "Brand",
       icon: <CreditCard size={18} />,
       href: "#",
-      subMenus: [
-        {
-          label: "Monthly pay sheet",
-          icon: <CalendarDays size={18} />,
-          href: "/payroll/monthly/paySheet",
-        },
-        {
-          label: "Weekly pay sheet",
-          icon: <UserRoundPlus size={18} />,
-          href: "/payroll/monthly/paySheet",
-        },
-        {
-          label: "Salary cost",
-          icon: <NotepadText size={18} />,
-          href: "/payroll/salary/cost",
-        },
-        {
-          label: "Salary update",
-          icon: <SquarePen size={18} />,
-          href: "/payroll/salary/review",
-        },
-      ],
     },
     {
-      title: "Loan",
+      title: "Cupons",
       icon: <Handshake size={18} />,
       href: "#",
-      subMenus: [
-        {
-          label: "Loan summary",
-          icon: <ScanBarcode size={18} />,
-          href: "/loan",
-        },
-        {
-          label: "Specific loans",
-          icon: <CalendarRange size={18} />,
-          href: "/specific/loan",
-        },
-      ],
     },
     {
       title: "Settings",
       icon: <Settings size={18} />,
       href: "/settings",
     },
-    {
-      title: "Approval",
-      icon: <ShieldCheck size={18} />,
-      href: "#",
-      subMenus: [
-        {
-          label: "Employee",
-          icon: <Users size={18} />,
-          href: "/approval/emp",
-        },
-        {
-          label: "Company",
-          icon: <Command size={18} />,
-          href: "/approval/company",
-        },
-        {
-          label: "Department",
-          icon: <PlaneTakeoff size={18} />,
-          href: "/approval/dept",
-        },
-        {
-          label: "Branch",
-          icon: <Split size={18} />,
-          href: "/approval/branch",
-        },
-
-        {
-          label: "Salary type",
-          icon: <CircleDollarSign size={18} />,
-          href: "/approval/salaryType",
-        },
-        {
-          label: "Designation",
-          icon: <UserSearch size={18} />,
-          href: "/approval/designation",
-        },
-      ],
-    },
   ];
 
   return (
-    <aside className="w-[300px] lg:w-[250px] xl:w-[300px] border-r border-gray overflow-y-auto sidebar-scrollbar fixed left-0 top-0 h-full bg-white z-50 transition-transform duration-300  -translate-x-[300px] lg:translate-x-[0]">
-      <div>
+    <aside className="w-[300px] lg:w-[250px] xl:w-[300px] border-r border-gray overflow-y-auto fixed left-0 top-0 h-full bg-white z-50 transition-transform duration-300  -translate-x-[300px] lg:translate-x-[0] p-5">
+      <div className="flex-none min-w-full px-4 sm:px-6 md:px-0 overflow-hidden lg:overflow-auto scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded dark:scrollbar-track:!bg-slate-500/[0.16] dark:scrollbar-thumb:!bg-slate-500/50 max-h-96 lg:supports-scrollbars:pr-2 lg:max-h-96">
         <Link href="/" className="inline-flex items-center gap-3">
-          <span className={`duration-300 ${!open && "scale-100"}`}>
+          <span className={`duration-300`}>
             <svg
               id="logo-86"
               width="40"
@@ -231,77 +148,73 @@ export const Asidebar = () => {
             </svg>
           </span>
           <h1
-            className={`text-slate-800 origin-left font-medium text-2xl duration-300 ${
-              !open && "scale-0"
-            }`}
+            className={`text-slate-800 origin-left font-medium text-2xl duration-300`}
           >
             DashBoard
           </h1>
         </Link>
       </div>
       <ul className="pt-2">
-        {menus.map((menu, index) => (
-          <React.Fragment key={index}>
-            <li
-              key={index}
-              className={` flex justify-between my-2 rounded-md p-2 cursor-pointer hover:bg-slate-600 text-slate-800 text-sm items-center gap-x-4 gap-3        `}                                                                                   
-                
-              onClick={() => handleSubMenuClick(index)}
-            >
-              <Link
-                href={menu.href}
+        {menus &&
+          menus.map((menu, index) => (
+            <React.Fragment key={index}>
+              <li
                 key={index}
-                className={`nav-link text-slate-800 flex items-center`}
+                className={` flex justify-between my-2 rounded-md p-2 cursor-pointer hover:bg-slate-600 text-slate-800 text-sm items-center gap-x-4 gap-3`}
                 onClick={() => handleSubMenuClick(index)}
               >
-                {menu.icon ? menu.icon : <LayoutDashboard size={18} />}
-                <span
-                  className={`text-base font-medium ps-2 duration-300                   `}
-                >
-                  {menu.title}
-                </span>
-              </Link>
-              {menu.subMenus && (
-                <ChevronRight
-                  size={18}
+                <Link
+                  href={menu.href}
+                  key={index}
+                  className={`nav-link text-slate-800 flex items-center`}
                   onClick={() => handleSubMenuClick(index)}
-                  className={`${
-                    activeSubMenuIndex === index ? "rotate-90" : ""
-                  }`}
-                />
-              )}
-            </li>
-            {menu.subMenus && activeSubMenuIndex === index && (
-              <ul className="ps-4">
-                {menu.subMenus.map((subMenuItem, idx) => (
-                  <li
-                    key={idx}
-                    className={`select-none flex ps-2 cursor-pointer text-center font-medium text-medium text-slate-800 py-2 hover:bg-slate-600 rounded-md my-1 
+                >
+                  {menu.icon ? menu.icon : <LayoutDashboard size={18} />}
+                  <span className={`text-base font-medium duration-300 ps-2`}>
+                    {menu.title}
+                  </span>
+                </Link>
+                {menu.subMenus && (
+                  <ChevronRight
+                    size={18}
+                    onClick={() => handleSubMenuClick(index)}
+                    className={`${
+                      activeSubMenuIndex === index ? "rotate-90" : ""
+                    }`}
+                  />
+                )}
+              </li>
+              {menu.subMenus && activeSubMenuIndex === index && (
+                <ul className="ps-4">
+                  {menu.subMenus.map((subMenuItem, idx) => (
+                    <li
+                      key={idx}
+                      className={`select-none flex cursor-pointer text-center font-medium text-medium text-slate-800 py-2 hover:bg-slate-600 rounded-md my-1 
                       
                    `}
-                  >
-                    <Link
-                      href={subMenuItem.href}
-                      key={idx}
-                      className={`nav-link text-light flex items-center`}
                     >
-                      {subMenuItem.icon ? (
-                        subMenuItem.icon
-                      ) : (
-                        <LayoutDashboard size={18} />
-                      )}
-                      <span
-                        className={`text-base font-medium ps-2 duration-300 `}
+                      <Link
+                        href={subMenuItem.href}
+                        key={idx}
+                        className={`nav-link text-light flex items-center`}
                       >
-                        {subMenuItem.label}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </React.Fragment>
-        ))}
+                        {subMenuItem.icon ? (
+                          subMenuItem.icon
+                        ) : (
+                          <LayoutDashboard size={18} />
+                        )}
+                        <span
+                          className={`text-base font-medium ps-2 duration-300 `}
+                        >
+                          {subMenuItem.label}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </React.Fragment>
+          ))}
       </ul>
     </aside>
   );
