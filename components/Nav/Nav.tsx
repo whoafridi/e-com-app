@@ -1,5 +1,5 @@
 import logo from "@/assets/logo.png";
-import Search from "@/components/Search/Search";
+import Search from "@/components/Nav/Search";
 import { User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
