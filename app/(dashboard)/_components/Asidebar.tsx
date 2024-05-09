@@ -57,12 +57,12 @@ export const Asidebar = () => {
       subMenus: [
         {
           label: "Product List",
-          href: "/product-list",
+          href: "/dashboard/product-list",
           icon: <Users size={18} />,
         },
         {
           label: "Add Product",
-          href: "/add-product",
+          href: "/dashboard/add-product",
           icon: <UserRoundPlus size={18} />,
         },
       ],
@@ -178,9 +178,8 @@ export const Asidebar = () => {
                   <ChevronRight
                     size={18}
                     onClick={() => handleSubMenuClick(index)}
-                    className={`${
-                      activeSubMenuIndex === index ? "rotate-90" : ""
-                    }`}
+                    className={`${activeSubMenuIndex === index ? "rotate-90" : ""
+                      }`}
                   />
                 )}
               </li>

@@ -4,17 +4,17 @@ import ECBreadCrumb from "@/app/utils/ECBreadCrumb";
 
 const Products = async () => {
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    { label: "Components", href: "/components" },
+    { label: "Home", href: "/dashboard" },
+    { label: "Product List", href: "/dashboard/product-list" },
   ];
   return (
-    <section className="relative md:py-24 py-16">
+    <section className="relative ">
 
-      <DashboardTitle title="Order" />
+      <DashboardTitle title="Product" />
       <ECBreadCrumb breadcrumbItems={breadcrumbItems} />
 
       <div className="container relative">
-        <div className="grid items-end md:grid-cols-2 mb-6">
+        {/* <div className="grid items-end md:grid-cols-2 mb-6">
           <div className="md:text-start text-center">
             <h5 className="font-semibold text-3xl leading-normal mb-4">
               Trending Items
@@ -31,7 +31,7 @@ const Products = async () => {
               See More Items
             </Link>
           </div>
-        </div>
+        </div> */}
         {/* <ProductList products={products} /> */}
       </div>
     </section>
