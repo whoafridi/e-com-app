@@ -1,38 +1,59 @@
-import Link from "next/link";
+"use client";
 import DashboardTitle from "@/app/utils/DashboardTiltle";
 import ECBreadCrumb from "@/app/utils/ECBreadCrumb";
+import { Search } from "lucide-react";
+import { Input } from "../ui/input";
 
-const Products = async () => {
+import { Button } from "@/components/ui/button";
+import ECSelect from "@/app/utils/ECSelect";
+
+const Products = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/dashboard" },
     { label: "Product List", href: "/dashboard/product-list" },
   ];
+  const options = [
+    {
+      label: "Active",
+      value: 'active'
+    },
+    {
+      label: "Inactive",
+      value: 'inactive'
+    }
+  ];
+
+
+
   return (
     <section className="relative ">
 
       <DashboardTitle title="Product" />
       <ECBreadCrumb breadcrumbItems={breadcrumbItems} />
 
-      <div className="container relative">
-        {/* <div className="grid items-end md:grid-cols-2 mb-6">
-          <div className="md:text-start text-center">
-            <h5 className="font-semibold text-3xl leading-normal mb-4">
-              Trending Items
-            </h5>
-            <p className="text-slate-400 max-w-xl">
-              Shop the latest products from the most popular items
-            </p>
+      <div className="mt-6 bg-white min-h-screen">
+
+        {/* search & filter starts */}
+        <div className="container py-8 flex flex-wrap gap-2 justify-between">
+
+          <div className="relative  flex-1 md:grow-0">
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Search by product name"
+              className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
+            />
           </div>
-          <div className="md:text-end">
-            <Link
-              href="/products"
-              className="text-slate-400 hover:text-orange-500"
-            >
-              See More Items
-            </Link>
+
+          <div className="flex items-center gap-4">
+            <ECSelect options={options} label="Status" placeholder="Select status" />
+            <Button>Add Product</Button>
           </div>
-        </div> */}
-        {/* <ProductList products={products} /> */}
+
+
+        </div>
+        {/* search & filter ends */}
+
       </div>
     </section>
   );
