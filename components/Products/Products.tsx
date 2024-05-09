@@ -1,35 +1,17 @@
 import Link from "next/link";
-import { getProducts } from "@/lib/fetch/getProducts";
-import ProductList from "./ProductList";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import DashboardTitle from "@/app/utils/DashboardTiltle";
+import ECBreadCrumb from "@/app/utils/ECBreadCrumb";
 
 const Products = async () => {
-  // const { products } = await getProducts();
-
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Components", href: "/components" },
+  ];
   return (
     <section className="relative md:py-24 py-16">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+
+      <DashboardTitle title="Order" />
+      <ECBreadCrumb breadcrumbItems={breadcrumbItems} />
 
       <div className="container relative">
         <div className="grid items-end md:grid-cols-2 mb-6">
