@@ -27,7 +27,7 @@ const ECSelect = ({ options, placeholder, label }: ISelect) => {
         setSelectedOption(event);
     };
 
-    console.log("selected options 🚀", selectedOption);
+    // console.log("selected options 🚀", selectedOption);
 
     return (
         <Select onValueChange={handleOptionChange} value={selectedOption}>
