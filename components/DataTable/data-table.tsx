@@ -46,8 +46,7 @@ export function DataTable<TData, TValue>({
     placeholder,
     label,
     selectItem
-}: DataTableProps<TData, TValue>) {
-    console.log("Data:", data);
+}: DataTableProps<TData, TValue>) {    
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
