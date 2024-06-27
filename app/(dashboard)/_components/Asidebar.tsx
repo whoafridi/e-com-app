@@ -91,12 +91,12 @@ export const Asidebar = () => {
       subMenus: [
         {
           label: "Order List",
-          href: "/",
+          href: "/dashboard/order-list",
           icon: <CalendarDays size={18} />,
         },
         {
           label: "POS",
-          href: "/",
+          href: "/dashboard/pos",
           icon: <CalendarFold size={18} />,
         },
       ],
@@ -114,7 +114,7 @@ export const Asidebar = () => {
     {
       title: "Settings",
       icon: <Settings size={18} />,
-      href: "/settings",
+      href: "/dashboard/settings",
     },
   ];
 
